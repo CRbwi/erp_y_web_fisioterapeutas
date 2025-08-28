@@ -1,0 +1,35 @@
+{
+    "name": "jorge/fisioterapia-system",
+    "description": "Sistema de gestión de citas para fisioterapeuta",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.8",
+        "google/apiclient": "^2.15"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jorge\\Fisioterapia\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jorge\\Fisioterapia\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'Dependencias instaladas correctamente'"
+        ],
+        "test": "phpunit"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

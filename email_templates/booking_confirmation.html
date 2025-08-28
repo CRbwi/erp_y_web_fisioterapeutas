@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Reserva</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #4CAF50;
+            margin: 0;
+            font-size: 28px;
+        }
+        .header p {
+            color: #666;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+        }
+        .booking-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .booking-details h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 120px;
+            color: #555;
+        }
+        .detail-value {
+            flex: 1;
+            color: #333;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .important-note h3 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .important-note p {
+            color: #856404;
+            margin: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        .contact-info {
+            background-color: #e8f5e8;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .contact-info h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .contact-info p {
+            color: #2e7d32;
+            margin: 5px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .email-container {
+                padding: 20px;
+            }
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .detail-label {
+                width: auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>✅ Confirmación de Reserva</h1>
+            <p>Tu cita ha sido reservada exitosamente</p>
+        </div>
+        
+        <p>Hola <strong>{{NOMBRE_CLIENTE}}</strong>,</p>
+        
+        <p>Te confirmamos que tu cita ha sido reservada con éxito. A continuación encontrarás todos los detalles:</p>
+        
+        <div class="booking-details">
+            <h2>📅 Detalles de la Cita</h2>
+            
+            <div class="detail-row">
+                <span class="detail-label">Fecha:</span>
+                <span class="detail-value">{{FECHA_CITA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Hora:</span>
+                <span class="detail-value">{{HORA_CITA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Motivo:</span>
+                <span class="detail-value">{{MOTIVO_CONSULTA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Estado:</span>
+                <span class="detail-value">✅ Confirmada</span>
+            </div>
+        </div>
+        
+        <div class="important-note">
+            <h3>⚠️ Información Importante</h3>
+            <p>• Por favor, llega 10 minutos antes de tu cita</p>
+            <p>• Trae ropa cómoda para la sesión</p>
+            <p>• Si necesitas cancelar, hazlo con al menos 24h de anticipación</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>📞 Información de Contacto</h3>
+            <p><strong>Fisioterapeuta:</strong> Jorge Hernandez</p>
+            <p><strong>Teléfono:</strong> +34 XXX XXX XXX</p>
+            <p><strong>Email:</strong> jorge@tudominio.com</p>
+            <p><strong>Dirección:</strong> [Tu dirección aquí]</p>
+        </div>
+        
+        <p>Si tienes alguna pregunta o necesitas modificar tu cita, no dudes en contactarnos.</p>
+        
+        <p>¡Te esperamos!</p>
+        
+        <p>Saludos cordiales,<br>
+        <strong>Jorge Hernandez</strong><br>
+        <em>Fisioterapeuta</em></p>
+        
+        <div class="footer">
+            <p>Este es un email automático, por favor no respondas a este mensaje.</p>
+            <p>© 2025 Jorge Hernandez Fisioterapeuta. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

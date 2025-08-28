@@ -1,0 +1,692 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+html, body {
+    height: 100%; /* Ensure full height for proper layout calculations */
+}
+
+header {
+    background-color: #111;
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #aaa;
+}
+
+main {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+    color: #eee;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #333;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: #222;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #1f1f1f;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Consistent font size */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px; /* Minimum height */
+}
+
+button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 0.8rem 1.8rem; /* Increased padding */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Consistent font size */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    margin-right: 10px; /* Spacing between buttons */
+}
+
+button:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+/* Specific styles for search and add client buttons */
+.search-container button {
+    margin-left: 10px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* Client details specific styles */
+#client-details p {
+    margin-bottom: 0.5rem;
+}
+
+#client-details p strong {
+    color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem; /* Increased padding */
+    background-color: #111;
+    position: relative; /* Changed to relative for better flow with main content */
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #333; /* Added border */
+    margin-top: 3rem; /* Added margin top */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    nav ul {
+        margin: 1rem 0 0 0;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    
+    nav a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        display: block;
+        border: 1px solid #333;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    
+    /* Active navigation state */
+    nav a.active {
+        background-color: #d4a574;
+        color: #fff;
+        border-color: #d4a574;
+    }
+
+    main {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Table responsive improvements */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 6px;
+        margin: 1rem 0;
+        border: 1px solid #333;
+    }
+    
+    table {
+        min-width: 600px; /* Ensure minimum width for readability */
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    th, td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.85rem;
+        white-space: nowrap; /* Prevent text wrapping in cells */
+    }
+    
+    /* Make specific columns more mobile-friendly */
+    th:nth-child(1), td:nth-child(1) { min-width: 80px; } /* Nombre */
+    th:nth-child(2), td:nth-child(2) { min-width: 80px; } /* Apellidos */
+    th:nth-child(3), td:nth-child(3) { min-width: 100px; } /* Teléfono */
+    th:nth-child(4), td:nth-child(4) { min-width: 120px; } /* Email */
+    th:nth-child(5), td:nth-child(5) { min-width: 100px; } /* Acciones */
+
+    /* Form improvements for mobile */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="datetime-local"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 12px; /* Larger touch targets */
+        font-size: 16px; /* Prevent zoom on iOS */
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+    
+    textarea {
+        min-height: 100px;
+    }
+
+    button {
+        padding: 12px 16px; /* Larger touch targets */
+        font-size: 1rem;
+        margin-right: 8px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        width: auto;
+        min-width: 120px;
+    }
+    
+    /* Search container mobile optimization */
+    .search-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .search-container input {
+        width: 100%;
+        margin: 0;
+    }
+
+    .search-container button {
+        width: 100%;
+        margin: 0;
+        padding: 12px;
+    }
+    
+    /* Client details mobile improvements */
+    #client-details {
+        padding: 1rem;
+    }
+    
+    #client-details p {
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+    
+    #client-details textarea {
+        width: 100%;
+        min-height: 120px;
+    }
+    
+    /* Modal improvements for mobile */
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 8px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-content form label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-content form input,
+    .modal-content form select,
+    .modal-content form textarea {
+        margin-bottom: 1rem;
+    }
+    
+    .modal-content form button {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+    
+    /* FullCalendar mobile improvements */
+    #calendar {
+        overflow-x: auto;
+        min-height: 400px;
+        font-size: 0.9rem;
+    }
+    
+    .fc-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .fc-toolbar-chunk {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .fc-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .fc-button-group {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    /* Availability section mobile */
+    #availability-section table {
+        min-width: 700px;
+    }
+    
+    /* Slot search mobile */
+    #slot-search-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #slot-search-section form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    /* Close button positioning */
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #aaa;
+    }
+    
+    .close-button:hover {
+        color: #fff;
+    }
+    
+    /* Improve form layouts on mobile */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Better button spacing on mobile */
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 1rem;
+    }
+    
+    .button-group button {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Improve table scroll indicator */
+    .table-container::after {
+        content: "← Desliza para ver más →";
+        display: block;
+        text-align: center;
+        padding: 10px;
+        color: #888;
+        font-size: 0.8rem;
+        background: linear-gradient(90deg, transparent, #333, transparent);
+        margin-top: 10px;
+    }
+    
+    /* Hide sections by default on mobile for better navigation */
+    section:not(#client-list) {
+        display: none;
+    }
+    
+    /* Show active section */
+    section.active {
+        display: block;
+    }
+    
+    /* Mobile menu toggle button */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Improve navigation visibility */
+    nav {
+        background-color: #0a0a0a;
+        border-radius: 6px;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    nav ul li {
+        margin: 0.3rem 0;
+    }
+    
+    nav a {
+        padding: 0.8rem 1rem;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+    
+    /* Mobile navigation state */
+    nav.mobile-hidden {
+        display: none;
+    }
+    
+    nav.mobile-visible {
+        display: block;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    main {
+        padding: 0.5rem;
+    }
+    
+    section {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 14px 16px;
+        font-size: 1rem;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+    
+    .search-container button {
+        padding: 14px;
+    }
+    
+    /* Stack buttons vertically on very small screens */
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .button-group button {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Smaller text on very small screens */
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.1rem; }
+    h4 { font-size: 0.9rem; }
+    
+    /* Adjust table container for very small screens */
+    .table-container {
+        margin: 0.5rem 0;
+        border-radius: 4px;
+    }
+    
+    /* Hide scroll indicator on very small screens */
+    .table-container::after {
+        display: none;
+    }
+    
+    /* Mobile menu adjustments for very small screens */
+    .mobile-menu-toggle {
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 20px;
+        height: 2px;
+    }
+    
+    /* Improve form spacing on very small screens */
+    form {
+        gap: 12px;
+    }
+    
+    input, textarea, select {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    /* Better button touch targets */
+    button {
+        min-height: 48px;
+        padding: 14px 16px;
+    }
+    
+    /* Improve modal on very small screens */
+    .modal-content {
+        padding: 15px;
+        margin: 1% auto;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-content form label {
+        font-size: 0.85rem;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        padding: 0.8rem;
+    }
+    
+    header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    nav {
+        margin-top: 0.5rem;
+    }
+    
+    main {
+        padding: 0.8rem;
+    }
+    
+    section {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .modal-content {
+        margin: 2% auto;
+        max-height: 85vh;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .mobile-menu-toggle span {
+        border-radius: 1px;
+    }
+    
+    button {
+        border-radius: 6px;
+    }
+    
+    input, textarea, select {
+        border-radius: 6px;
+    }
+}

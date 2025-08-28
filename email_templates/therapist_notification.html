@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Reserva - Notificación</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2196F3;
+            margin: 0;
+            font-size: 28px;
+        }
+        .header p {
+            color: #666;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+        }
+        .booking-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .booking-details h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 120px;
+            color: #555;
+        }
+        .detail-value {
+            flex: 1;
+            color: #333;
+        }
+        .client-info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .client-info h3 {
+            color: #1565c0;
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .client-info p {
+            color: #1565c0;
+            margin: 5px 0;
+        }
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .button.danger {
+            background-color: #f44336;
+        }
+        .button.success {
+            background-color: #4CAF50;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        .priority-high {
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .priority-high h3 {
+            color: #c62828;
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .priority-high p {
+            color: #c62828;
+            margin: 0;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .email-container {
+                padding: 20px;
+            }
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .detail-label {
+                width: auto;
+                margin-bottom: 5px;
+            }
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .button {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🔔 Nueva Reserva Recibida</h1>
+            <p>Se ha registrado una nueva cita en el sistema</p>
+        </div>
+        
+        <p>Hola <strong>Jorge</strong>,</p>
+        
+        <p>Has recibido una nueva reserva a través del sistema web. A continuación encontrarás todos los detalles:</p>
+        
+        <div class="booking-details">
+            <h2>📅 Detalles de la Cita</h2>
+            
+            <div class="detail-row">
+                <span class="detail-label">Fecha:</span>
+                <span class="detail-value">{{FECHA_CITA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Hora:</span>
+                <span class="detail-value">{{HORA_CITA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Motivo:</span>
+                <span class="detail-value">{{MOTIVO_CONSULTA}}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Estado:</span>
+                <span class="detail-value">🆕 Nueva</span>
+            </div>
+        </div>
+        
+        <div class="client-info">
+            <h3>👤 Información del Cliente</h3>
+            <p><strong>Nombre:</strong> {{NOMBRE_CLIENTE}}</p>
+            <p><strong>Teléfono:</strong> {{TELEFONO_CLIENTE}}</p>
+            <p><strong>Email:</strong> {{EMAIL_CLIENTE}}</p>
+            <p><strong>Cliente Nuevo:</strong> {{ES_CLIENTE_NUEVO}}</p>
+        </div>
+        
+        <div class="priority-high">
+            <h3>⚠️ Acción Requerida</h3>
+            <p>Esta cita requiere tu confirmación. Por favor, revisa la disponibilidad y confirma o contacta al cliente si es necesario.</p>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="{{ADMIN_PANEL_URL}}" class="button">📋 Ver Panel de Administración</a>
+            <a href="mailto:{{EMAIL_CLIENTE}}" class="button success">✉️ Contactar Cliente</a>
+            <a href="tel:{{TELEFONO_CLIENTE}}" class="button">📞 Llamar Cliente</a>
+        </div>
+        
+        <p><strong>Nota:</strong> Esta notificación se envía automáticamente cuando se recibe una nueva reserva. El cliente ya ha recibido una confirmación automática.</p>
+        
+        <div class="footer">
+            <p>Sistema de Gestión de Citas - Jorge Hernandez Fisioterapeuta</p>
+            <p>© 2025 Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
